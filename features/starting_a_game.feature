@@ -5,5 +5,7 @@ Feature: Starting the game
 
 	Scenario: Registering
 		Given I am on the homepage
-		When I follow "New Game"
-		Then I should see "What's your name"
+		And I follow "New Game"
+		When I fill in "Name" with "Jamie"
+		And I press "Submit"
+		Then I should see "Welcome to battleships Jamie"

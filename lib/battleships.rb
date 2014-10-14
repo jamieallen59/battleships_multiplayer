@@ -2,7 +2,8 @@ require 'sinatra/base'
 
 class Battleships < Sinatra::Base
 
-set :views, Proc.new { File.join(root, '/../', "views") }
+# point the controller at the views file
+set :views, Proc.new { File.join(root, '..', "views") }
 
   get '/' do
     erb :index
@@ -10,6 +11,11 @@ set :views, Proc.new { File.join(root, '/../', "views") }
 
   get '/name' do
   	erb :name
+  end
+
+  get '/waiting_room' do
+  	erb :waiting_room
+  	@name = params[:name]
   end
 
   # start the server if ruby file executed directly
