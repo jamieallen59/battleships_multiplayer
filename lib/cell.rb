@@ -1,5 +1,7 @@
 class Cell
+
 	attr_accessor :content
+
 	def initialize
 		@hit = false
 	end
@@ -11,4 +13,5 @@ class Cell
 	def hit?
 		@hit
 	end
+	
 end
