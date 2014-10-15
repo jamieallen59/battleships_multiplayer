@@ -20,6 +20,10 @@ Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+When(/^I see "(.*?)"$/) do |arg1|
+  page.should have_content(arg1)
+end
+
 When /^(?:|I )go to (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -95,6 +99,11 @@ When /^(?:|I )attach the file "([^\"]*)" to "([^\"]*)"(?: within "([^\"]*)")?$/ 
   with_scope(selector) do
     attach_file(field, path)
   end
+end
+
+Then(/^I see an error$/) do
+  page.should have_content("Sorry. You must enter a name to play Battleships")
+  page.should have_link("Go back")
 end
 
 Then /^(?:|I )should see JSON:$/ do |expected_json|

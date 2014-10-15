@@ -14,8 +14,13 @@ set :views, Proc.new { File.join(root, '..', "views") }
   end
 
   get '/waiting_room' do
-  	erb :waiting_room
   	@name = params[:name]
+
+	  	if @name.empty?
+	 			return erb :name_error
+	  	end
+
+  	erb :waiting_room
   end
 
   # start the server if ruby file executed directly
